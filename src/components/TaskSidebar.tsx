@@ -87,7 +87,7 @@ function TaskSidebar({
   }
 
   return (
-    <aside className={clsx("sidebar", !isMobileMenuOpen ? "hidden" : "z-99")}>
+    <aside className={clsx("sidebar", !isMobileMenuOpen ? "hidden" : "")}>
       <h1>
         <ListTodo /> TaskFlow
       </h1>
