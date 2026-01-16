@@ -15,7 +15,7 @@
 /* Sidebar */
 
 .sidebar {
-  @apply lg:flex flex-col w-full lg:w-1/5 p-7 bg-white font-medium text-sm shadow-xl dark:bg-gray-950 fixed top-0 bottom-0 lg:relative z-99 lg:z-0;
+  @apply lg:flex flex-col w-full lg:w-1/5 p-7 bg-white font-medium text-sm shadow-xl dark:bg-gray-950 fixed top-0 bottom-0 lg:relative z-99 lg:z-0 dark:shadow-white/10;
 }
 .sidebar-content {
   @apply flex-1 flex flex-col justify-between h-full py-7 lg:py-0;
