@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Sidebar */
+
+.sidebar {
+  @apply lg:flex flex-col w-full lg:w-1/5 p-7 bg-white font-medium text-sm shadow-xl dark:bg-gray-950 fixed top-0 bottom-0 lg:relative;
+}
+.sidebar-content {
+  @apply flex-1 flex flex-col justify-between h-full py-7 lg:py-0;
+}
+.sidebar h1,
+.navbar h1 {
+  @apply flex items-center gap-2 lg:mb-9 font-semibold text-lg;
+}
+.sidebar h3 {
+  @apply mb-3;
+}
+
+.sidebar-stats {
+  @apply mt-5 lg:mt-0 mb-5 pb-5 border-b border-gray-300 dark:border-gray-600;
+}
+.sidebar-stats ul {
+  @apply space-y-2 ml-2;
+}
+.sidebar-stats li {
+  @apply flex items-center gap-2;
+}
+
+.sidebar-views div {
+  @apply space-y-2;
+}
+.sidebar-views label {
+  @apply flex items-center gap-2 p-2 text-gray-500 cursor-pointer rounded-md hover:text-gray-800 transition has-checked:bg-gray-600 has-checked:text-white dark:text-gray-400 dark:hover:text-gray-100 dark:has-checked:bg-gray-300 dark:has-checked:text-gray-900;
+}
+.sidebar-views input {
+  @apply sr-only;
+}
+
+.sidebar-actions {
+  @apply mb-4 pb-4 border-b border-gray-300 dark:border-gray-600;
+}
+.sidebar-actions button {
+  @apply flex items-center gap-2 w-full p-2 text-gray-500 rounded-md hover:bg-gray-200 hover:text-gray-800 transition dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-100;
+}
+
+.sidebar-user {
+  @apply flex items-center gap-2;
+}
+
+/* Navbar */
+
+.navbar {
+  @apply flex lg:hidden justify-between relative pt-7 px-7;
+}
+.navbar button {
+  @apply top-7.5 right-7;
+}
+
+/* Task Board */
+
+.board {
+  @apply flex-1;
+}
+.board-header {
+  @apply flex justify-between items-center py-7 px-7 font-medium;
+}
+.board-columns {
+  @apply lg:grid grid-cols-3 gap-5 px-7 pb-7 lg:pb-0 text-sm;
+}
+.board-column {
+  @apply relative h-100 lg:h-[calc(100vh-(116px))] mb-3 lg:mb-0 border border-gray-300 rounded-xl overflow-hidden hover:shadow-lg transition dark:border-gray-600 dark:shadow-white/10;
+}
+.board-column-header {
+  @apply sticky top-0 flex items-center gap-2 p-4 bg-gray-50 font-bold dark:bg-gray-900;
+}
+.board-task-list-wrapper {
+  @apply relative h-[calc(100%-52px)] overflow-y-auto;
+}
+.board-task-list-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.board-task-list {
+  @apply flex flex-col gap-2 min-h-[calc(100%-80px)] px-4 pb-4;
+}
+.board-task {
+  @apply flex justify-between items-center p-4 bg-gray-200 text-black rounded-md shadow-sm cursor-pointer border-l-4 list-none transition hover:scale-102 dark:bg-gray-700 dark:text-gray-100;
+}
+.task-dueDate {
+  @apply flex items-center gap-1 mt-1;
+}
+.scroll-gradient {
+  @apply sticky bottom-0 h-20 pointer-events-none bg-linear-to-t from-gray-50 to-transparent dark:from-gray-900;
+}
+.empty-task-list {
+  @apply my-5 text-center text-gray-500 italic dark:text-gray-400;
+}
+
+/* Buttons */
+
+.btn {
+  @apply px-3 py-2 font-medium text-xs rounded-md transition;
+}
+.btn-primary {
+  @apply bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-100;
+}
+.btn-secondary {
+  @apply border border-gray-800 hover:bg-gray-50 dark:border-gray-100 dark:hover:bg-gray-900;
+}
+.btn-delete {
+  @apply text-red-600 dark:text-red-400 hover:text-red-500 dark:hover:text-red-500;
+}
+
+/* Modal */
+
+.modal {
+  @apply items-end lg:items-center justify-center absolute top-0 right-0 left-0 bottom-0 bg-black/30 dark:bg-white/30;
+}
+.modal-container {
+  @apply p-6 bg-white w-full lg:min-w-md lg:max-w-lg rounded-lg dark:bg-gray-950;
+}
+.modal-header {
+  @apply flex justify-between items-center font-bold mb-5;
+}
+
+/* Form */
+
+form {
+  @apply space-y-4;
+}
+form label {
+  @apply flex flex-col gap-2 font-medium text-sm text-gray-600 dark:text-gray-300;
+}
+form input,
+form textarea,
+form select {
+  @apply px-2 py-2 bg-gray-100 font-normal text-gray-800 border-b-2 border-gray-200 rounded-md focus:outline-0 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700;
+}
+input[type="radio"]:focus-visible + label {
+  @apply outline-2 outline-blue-500 outline-offset-2;
+}
+form select {
+  @apply cursor-pointer;
+}
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  @apply invert;
+}
+.form-actions {
+  @apply flex justify-between mt-8;
+}
+.form-actions div {
+  @apply flex justify-end gap-3;
+}
+
+/* SVG */
+
+.star {
+  @apply transition duration-150 hover:scale-115;
+}
+.star-active {
+  @apply fill-amber-300 text-amber-400 dark:fill-amber-400 dark:text-amber-500;
+}
+.star-inactive {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.drag-handle {
+  @apply hidden lg:block -ml-2 text-gray-400 dark:text-gray-500;
+}
+
+.exit-btn {
+  @apply text-gray-600 dark:text-gray-300;
+}
