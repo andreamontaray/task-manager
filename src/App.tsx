@@ -24,9 +24,69 @@ export type FilteredTasks = {
   doneTasks: JSX.Element[];
 };
 
+const initialTasks: Task[] = [
+  {
+    id: 1,
+    title: "Welcome to TaskFlow 🎉",
+    description: "Explore your dashboard and try creating your first task.",
+    status: "done",
+    priority: "medium",
+    dueDate: "2026-02-20",
+    isStarred: true,
+  },
+  {
+    id: 2,
+    title: "Create your first task",
+    description: "Click the 'Add Task' button and enter a title and description.",
+    status: "to-do",
+    priority: "high",
+    dueDate: "2026-02-25",
+    isStarred: true,
+  },
+  {
+    id: 3,
+    title: "Organize tasks by priority",
+    description: "Set priority levels to focus on what matters most.",
+    status: "in-progress",
+    priority: "medium",
+    dueDate: "2026-02-27",
+    isStarred: false,
+  },
+  {
+    id: 4,
+    title: "Mark tasks as completed",
+    description: "Update the status to 'done' once you've finished a task.",
+    status: "to-do",
+    priority: "low",
+    dueDate: "2026-03-01",
+    isStarred: false,
+  },
+  {
+    id: 5,
+    title: "Star important tasks",
+    description: "Use the star feature to quickly find important tasks later.",
+    status: "in-progress",
+    priority: "high",
+    dueDate: "2026-02-23",
+    isStarred: true,
+  },
+  {
+    id: 6,
+    title: "Review your progress",
+    description: "Check completed tasks to see how productive you've been.",
+    status: "to-do",
+    priority: "medium",
+    dueDate: "2026-03-05",
+    isStarred: false,
+  },
+]
+
 function App() {
   const [tasks, setTasks] = useState<Task[]>(() =>
-    JSON.parse(localStorage.getItem("tasks") || "[]")
+   {
+  const stored = localStorage.getItem("tasks");
+  return stored ? JSON.parse(stored) : initialTasks;
+}
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [view, setView] = useState<View>("all-tasks");
